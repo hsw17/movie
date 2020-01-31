@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:http/http.dart' as client;
-import 'dart:convert'; //使用 json 解析
+
 
 class HomePage extends StatefulWidget {
   _HomePage createState() => _HomePage();
