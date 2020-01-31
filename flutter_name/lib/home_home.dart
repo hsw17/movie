@@ -5,10 +5,10 @@ import 'package:http/http.dart' as client;
 import 'dart:convert'; //使用 json 解析
 
 class HomePage extends StatefulWidget {
-  _HomePageState createState() => _HomePageState();
+  _HomePage createState() => _HomePage();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePage extends State<HomePage> {
   List _bannerList = [
     "http://mobile.bwstudent.com/images/movie/stills/whwdzg/whwdzg1_h.jpg",
     "http://mobile.bwstudent.com/images/movie/stills/zgjz/zgjz1_h.jpg",
