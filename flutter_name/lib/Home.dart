@@ -12,7 +12,7 @@ class Home_Widget extends StatefulWidget {
 
 class _Home_WidgetState extends State<Home_Widget> {
   var _currentIndex = 0;
-  List BottomBarIndex = [HomePage(), Cinema(), My_Setting()];
+  List BottomBarIndex = [Movies(), Cinema(), My_Setting()];
 
   @override
   Widget build(BuildContext context) {
