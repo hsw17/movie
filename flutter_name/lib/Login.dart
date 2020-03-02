@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as client;
 import 'dart:convert';
 
-import 'Home.dart'; //使用 json 解析
+import 'mains.dart'; //使用 json 解析
+
 
 void main() => runApp(Login_Widget());
 
@@ -13,6 +14,8 @@ class Login_Widget extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       home: TextFieldAndCheckPage(),
     );
   }
@@ -50,25 +53,56 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: Colors.black45,
       body: Column(
         children: <Widget>[
+          Image.asset('images/qwe.png',
+            width: double.infinity,
+          ),
           TextField(
             controller: phoneController,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(10.0), hintText: '请输入账号'),
+                contentPadding: EdgeInsets.all(10.0), hintText: '请输入账号',hintStyle: TextStyle(color: Colors.white70)),
             autofocus: false,
+
           ),
           TextField(
               controller: passController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0), hintText: '请输入密码'),
+                  contentPadding: EdgeInsets.all(10.0), hintText: '请输入密码',hintStyle: TextStyle(color: Colors.white70)),
               obscureText: true),
-          RaisedButton(
-            onPressed: _login,
-            child: Text('登录'),
+          TextWidget(),
+          Container(
+            width: 350,
+            height: 40,
+            child:  RaisedButton(
+              color: Colors.red,
+              onPressed: _login,
+              child: Text('登录',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
+          TextsWidget,
+          Container(
+            width: 350,
+            height: 40,
+            child: RaisedButton(
+              // onPressed: _login,
+              color: Colors.green,
+              child: Text('微信',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          )
+
         ],
       ),
     );
@@ -96,7 +130,7 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
                 title: Text('登录成功'),
               ));
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => Home_Widget()));
+          .push(MaterialPageRoute(builder: (context) => HomeActivity()));
       phoneController.clear();
     }
   }
@@ -108,3 +142,47 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
     });
   }
 }
+
+class TextWidget extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+        margin: EdgeInsets.only(top: 10,bottom: 20),
+        child:GestureDetector(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Text("暂无账号,立即注册",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+          onTap: (){
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => HomeActivity()));
+          },
+        )
+
+    );
+  }
+
+}
+
+Widget TextsWidget = new Container(
+  margin: EdgeInsets.only(top: 30,bottom: 30),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      Text("—————— 或 ——————",
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.white,
+        ),
+      )
+    ],
+  ),
+);
