@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_name/api/apis.dart';
+import 'package:flutter_name/api/Ap.dart';
 import 'package:flutter_name/bean/xiangqing_bean_entity.dart';
 
 import 'dio_manager.dart';

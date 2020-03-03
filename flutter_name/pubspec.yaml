@@ -67,6 +67,7 @@ flutter:
      - images/cinema.png
      - images/movie.png
      - images/my.png
+     - images/chongzhijilu.png
      - images/qwe.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

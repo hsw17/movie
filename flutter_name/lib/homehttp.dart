@@ -121,7 +121,7 @@ class _movie_CinemaWidget extends State<_movie_Cinema> {
   List<Widget> _getItem() {
     return list.map((item) {
       return new Card(
-
+        color: Colors.black45,
         child: new Padding(
 
           padding: const EdgeInsets.all(2.0),
@@ -158,7 +158,7 @@ class _movie_CinemaWidget extends State<_movie_Cinema> {
 
                 style: new TextStyle(
 
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 10.0,
                 ),
                 textAlign: TextAlign.start),
@@ -168,7 +168,7 @@ class _movie_CinemaWidget extends State<_movie_Cinema> {
               maxLines: 2,
               style: new TextStyle(
 
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 12.0,
               ),
               //文字溢出
@@ -230,6 +230,7 @@ class _nearby_cinemawidget extends State<_nearby_cinema> {
   List<Widget> _getItem() {
     return list.map((item) {
       return new Card(
+        color: Colors.black45,
         child: new Padding(
           padding: const EdgeInsets.all(3.0),
           child: _item(item),
@@ -258,7 +259,7 @@ class _nearby_cinemawidget extends State<_nearby_cinema> {
 
             Text("${item["name"]}".trim(),
                 style: new TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 10.0,
 
                 ),
@@ -267,7 +268,7 @@ class _nearby_cinemawidget extends State<_nearby_cinema> {
               "${item["address"]}",
                style: new TextStyle(
 
-                 color: Colors.black,
+                 color: Colors.white,
                  fontSize: 12.0,
                ),
                //显示行数
@@ -330,6 +331,7 @@ class _region_cinemawidget extends State<_region_cinema> {
   List<Widget> _getItem() {
     return list.map((item) {
       return new Card(
+        color: Colors.black45,
         child: new Padding(
           padding: const EdgeInsets.all(10.0),
           child: _item(item),
@@ -353,7 +355,7 @@ class _region_cinemawidget extends State<_region_cinema> {
 
                 style: new TextStyle(
 
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 14.0,
                 ),
                 textAlign: TextAlign.left),

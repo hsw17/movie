@@ -1,7 +1,13 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+
+import 'my_interfaceWidget/I_Feedback.dart';
+import 'my_interfaceWidget/I_appointment.dart';
+import 'my_interfaceWidget/I_attention.dart';
+import 'my_interfaceWidget/I_comment.dart';
+import 'my_interfaceWidget/Read_Movie.dart';
+import 'my_interfaceWidget/Settings.dart';
+import 'my_interfaceWidget/Ticket_Record.dart';
 
 class My_Setting extends StatefulWidget {
   @override
@@ -11,311 +17,265 @@ class My_Setting extends StatefulWidget {
 class _My_SettingState extends State<My_Setting> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black54,
-      appBar: AppBar(
-        leading: new Icon(Icons.arrow_back),
-     //   backgroundColor: Colors.blue,
-        centerTitle: true,
+    return MaterialApp(
+
+      home: Scaffold(
         backgroundColor: Colors.black54,
-        title: Text('我的'),
+        appBar: AppBar(
+          backgroundColor: Colors.black45,
+          centerTitle: true,
+          title: Text(
+            "我的",
+          ),
+        ),
+        body: _HomeContent(),
       ),
-      body: ListView(
-
-        children: <Widget>[
-          touxiang,
-          moviepiao,
-          buttonWidget,
-          buttonWidgets,
-          buttonWidgetss,
-
-        ],
-      ),
-
     );
   }
 }
-//touxian头像
-Widget touxiang = new Container(
 
-  margin: EdgeInsets.only(top: 10),
-  padding: EdgeInsets.only(left: 10,top: 20),
-  child:new Row(
+class _HomeContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
 
-    //孩子们
-    children: <Widget>[
-      //圆头像
-      CircleAvatar(
-        //头像半径
-        radius: 25,
-        //头像图片 -> NetworkImage网络图片，AssetImage项目资源包图片, FileImage本地存储图片
-        backgroundImage:AssetImage('images/beiying.jpg',
-        )
-      ),
-      Padding(
-
-        padding:EdgeInsets.only(left: 20),
-        child:Row(
-
-          children: <Widget>[
-            Text('登录/注册',
-              style: TextStyle(
-                color: Colors.white,
-
-              ),
-
-            ),
-            Padding(padding: EdgeInsets.only(left: 200),child:
-
-            Image.asset('images/back.png',
-              width: 10,
-              height: 20,
-              //适应
-              //   fit:BoxFit.cover,
-            ),
-            )
-
-          ],
-
-        ),
-
-      ),
-
-    ],
-
-  ),
-
-);
-
-
-
-//电影票
-Widget moviepiao = new Container(
-
-  margin: EdgeInsets.only(top: 10),
-  padding: EdgeInsets.only(left: 20,top: 20),
-  child:new Row(
-
-
-    children: <Widget>[
-      Image.asset('images/wodedianyingpiao.png',
-        width: 40,
-        height: 50,
-        //适应
-        //   fit:BoxFit.cover,
-      ),
-  Padding(
-
-    padding:EdgeInsets.only(left: 20),
-    child:Row(
       children: <Widget>[
-        Text('电影票',
-        style: TextStyle(
-          color: Colors.white70,
-        ),
-        ),
-        Padding(padding: EdgeInsets.only(left: 200),child:
-        Image.asset('images/back.png',
-          width: 10,
-          height: 20,
-          //适应
-          //   fit:BoxFit.cover,
-        ),
-          )
-
+        _Stack_Widget(),
       ],
-    ),
-  ),
-    ],
-  ),
+    );
+  }
+}
 
-);
+//Stack 电影故事
+class _Stack_Widget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
 
+      children: <Widget>[
 
-//diyihang第一行
-Widget buttonWidget = new Container(
-
-  margin: EdgeInsets.only(top: 10),
-  //三列
-  child:new Row(
-    //用MainAxisAlignment.spaceEvenly平均分配子空间
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //孩子们
-    children: <Widget>[
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('images/group_2.png',
-              width: 40,
-              height: 50,
-              //适应
-              //   fit:BoxFit.cover,
+        new Container(
+          margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+          //设置外边距
+          height: 100,
+          width: 500,
+          //边框设置
+          decoration: new BoxDecoration(
+            //背景
+            color: Colors.black45,
+            //设置四周圆角 角度
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          ),
+        ),
+        new InkWell(
+          child: Container(
+            margin: EdgeInsets.fromLTRB(20, 35, 0, 0),
+            height: 60,
+            width: 60,
+            child: new CircleAvatar(
+              //头像半径
+              radius: 25,
+              backgroundImage: new AssetImage('images/beiying.jpg'),
             ),
-            Text('我的关注',
+          ),
+          onTap: () {},
+        ),
+        new InkWell(
+          onTap: () {},
+          child: Container(
+            margin: EdgeInsets.fromLTRB(100, 55, 0, 0),
+            child: new Text(
+              '登录/注册',
               style: TextStyle(
-                color: Colors.white70,
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w100),
+            ),
+          ),
+        ),
+        new Container(
+          width: 500,
+          height: 50,
+          margin: EdgeInsets.fromLTRB(10, 140, 10, 0),
+          //边框设置
+          decoration: new BoxDecoration(
+            //背景
+            color: Colors.black45,
+            //设置四周圆角 角度
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          ),
+          child: InkWell(
+            child: Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: Image(image: new AssetImage('images/wodedianyingpiao.png'),
+                    width: 24,
+                    height: 24,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                  child: Text("电影票",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w100),
+                    ),
+                )
+              ],
+            ),
+            onTap: () {},
+          ),
+        ),
+        new Container(
+          margin: EdgeInsets.fromLTRB(10, 210,10, 0),
+          height: 300,
+          width: 350,
+          color: Colors.black45,
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      print('点击了导航我的关注');
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Attention()));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(35, 0, 0, 0),
+                      width: 48,
+                      height: 46,
+                      child: Image(
+                        image: new AssetImage('images/group_2.png'),
+                      ),
+                    ),
+
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(30, 10, 0, 0),
+                    width: 100,
+                    height: 120,
+                    child: InkWell(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.fromLTRB(30, 32, 0, 0),
+                            child: Image(
+                              image: new AssetImage('images/wodeyuyue.png'),
+                              width: 24,
+                              height: 24,
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(30, 8, 0, 0),
+                            child: Text(
+                              '我的预约',
+                              style:
+                              TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                          )
+                        ],
+                      ),
+                      onTap: () {
+                        print('点击了导航我的预约');
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Appointment()));
+                      },
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print('点击了导航购票记录');
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Ticket_Record()));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                      width: 48,
+                      height: 46,
+                      child: Image(
+                        image: new AssetImage('images/chongzhijilu.png'),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
+              Row(
+                children: <Widget>[
+                  InkWell(
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(33, 0, 0, 0),
+                      width: 60,
+                      height: 46,
+                      child: Image(
+                        image: new AssetImage('images/duihao.png'),
+                      ),
 
-        ),
-      ),
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('images/wodeyuyue.png',
-              width: 40,
-              height: 50,
-              //适应
-              //   fit:BoxFit.cover,
-            ),
-            Text('我的预约',
-              style: TextStyle(
-                color: Colors.white70,
+                    ),
+
+                    onTap: () {
+                      print('点击了导航看过的电影');
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Read_Movie()));
+                    },
+                  ),
+                  InkWell(
+                    onTap: () {
+                      print('点击了导航我的评论');
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Comment()));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                      width: 48,
+                      height: 46,
+                      child: Image(
+                        image: new AssetImage('images/pinglun.png'),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(73, 0, 0, 0),
+                      width: 48,
+                      height: 46,
+                      child: Image(
+                        image: new AssetImage('images/yijianfankui_01.png'),
+                      ),
+                    ),
+                    onTap: () {
+                      print('点击了导航意见反馈');
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Feedback_I()));
+                    },
+                  ),
+                ],
               ),
-            ),
-          ],
-
-        ),
-      ),
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('images/chongzhijilu.png',
-              width: 40,
-              height: 50,
-            ),
-            Text('购买记录',
-              style: TextStyle(
-                color: Colors.white70,
+              Row(
+                children: <Widget>[
+                  InkWell(
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(40, 30, 0, 0),
+                      width: 46,
+                      height: 46,
+                      child: Image(
+                        image: new AssetImage('images/invalid_name.png'),
+                      ),
+                    ),
+                    onTap: () {
+                      print('点击了导航设置');
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Setttings()));
+                    },
+                  ),
+                ],
               ),
-            ),
-          ],
-
-        ),
-      ),
-    ],
-  ),
-);
-//diyihang第二行
-Widget buttonWidgets = new Container(
-  margin: EdgeInsets.only(top: 10),
-  //三列
-  child:new Row(
-    //用MainAxisAlignment.spaceEvenly平均分配子空间
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //孩子们
-    children: <Widget>[
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('images/duihao.png',
-              width: 40,
-              height: 50,
-              //适应
-              //   fit:BoxFit.cover,
-            ),
-            Text('看过的电影',
-              style: TextStyle(
-                color: Colors.white70,
-              ),
-            ),
-          ],
-
-        ),
-      ),
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('images/pinglun.png',
-              width: 40,
-              height: 50,
-              //适应
-              //   fit:BoxFit.cover,
-            ),
-            Text('我的评论',
-              style: TextStyle(
-                color: Colors.white70,
-              ),
-            ),
-          ],
-
-        ),
-      ),
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('images/yijianfankui_01.png',
-              width: 40,
-              height: 50,
-            ),
-            Text('意见反馈',
-              style: TextStyle(
-                color: Colors.white70,
-              ),
-            ),
-          ],
-
-        ),
-      ),
-    ],
-  ),
-);
-//diyihang第三行
-Widget buttonWidgetss = new Container(
-  margin: EdgeInsets.only(top: 10),
-  //三列
-  child:new Row(
-    //用MainAxisAlignment.spaceEvenly平均分配子空间
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //孩子们
-    children: <Widget>[
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('images/invalid_name.png',
-              width: 40,
-              height: 50,
-              //适应
-              //   fit:BoxFit.cover,
-            ),
-            Text('设置',
-              style: TextStyle(
-                color: Colors.white70,
-              ),
-            ),
-          ],
-
-        ),
-      ),
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('',
-              width: 40,
-              height: 50,
-              //适应
-              //   fit:BoxFit.cover,
-            ),
-            Text(''),
-          ],
-
-        ),
-      ),
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Image.asset('',
-              width: 40,
-              height: 50,
-            ),
-            Text(''),
-          ],
-
-        ),
-      ),
-    ],
-  ),
-);
-
-
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}

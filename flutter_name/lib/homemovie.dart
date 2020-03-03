@@ -98,6 +98,7 @@ class SwiperDiy extends StatelessWidget {
       width: 750,
       height: 150,
       child: Swiper(
+
         scrollDirection: Axis.horizontal,
         // 横向
         itemBuilder: (BuildContext context, int index) {
@@ -184,6 +185,7 @@ class _DynamicPageState extends State<_Release_Widget> {
 
           child: new Card(
             elevation: 3.0,
+            color: Colors.black45,
             child :  Padding(
               padding: const EdgeInsets.all(10.0),
               child: _item(item),
@@ -222,6 +224,10 @@ class _DynamicPageState extends State<_Release_Widget> {
         ),
         new Text(
             "${item["name"]}",
+            style: new TextStyle(
+              color: Colors.white,
+              fontSize: 15.0,
+            ),
             textAlign: TextAlign.center
         ),
       ],
@@ -280,6 +286,7 @@ class _coming_State extends State<coming_soon_Widget> {
     return list.map((item) {
       return GestureDetector(
          child : Card(
+           color: Colors.black45,
             child: new Padding(
               padding: const EdgeInsets.all(10.0),
               child: _item(item),
@@ -312,13 +319,17 @@ class _coming_State extends State<coming_soon_Widget> {
         new Column(
           children: <Widget>[
             new Text("${item["name"]}".trim(),
-               /* style: new TextStyle(
-                  color: Colors.black,
+               style: new TextStyle(
+                  color: Colors.white,
                   fontSize: 20.0,
-                ),*/
+                ),
                 textAlign: TextAlign.left),
             new Text(
               "${item["wantSeeNum"]}",
+              style: new TextStyle(
+                color: Colors.white,
+                fontSize: 13.0,
+              ),
             )
 
           ],
@@ -382,6 +393,7 @@ class _hot_movie_State extends State<_hot_movie_Widget> {
     return list.map((item) {
       return GestureDetector(
          child: new Card(
+           color: Colors.black45,
             child: new Padding(
               padding: const EdgeInsets.all(10.0),
               child: _item(item),
@@ -414,10 +426,10 @@ class _hot_movie_State extends State<_hot_movie_Widget> {
           ),
         ),
         Text("${item["name"]}".trim(),
-           /* style: new TextStyle(
-              color: Colors.black,
-              fontSize: 20.0,
-            ),*/
+            style: new TextStyle(
+              color: Colors.white,
+              fontSize: 15.0,
+            ),
             textAlign: TextAlign.center),
       ],
     );
